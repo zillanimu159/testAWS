@@ -1,0 +1,168 @@
+/* How to specify HTML tags */
+
+
+
+body {
+    background: #0B132B;
+    color: #5BC0BE;
+
+
+}
+
+a{
+    color: #5BC0BE;
+    font-size: larger;
+}
+
+button{
+    color: #5BC0BE
+}
+.hSpacer{
+    min-width:200px;
+}
+.vSpacer{
+    min-height:200px;
+}
+
+.biggerGradient{
+    max-width: 200%;
+}
+
+.borderedBig{
+    font-family: Ubuntu;
+    border-color: #7772B6;
+    font-size: x-large;
+    font-weight: bold;
+    padding:13px;
+    min-width:10px;
+    min-height:10px;
+    display:auto;
+}
+
+.heading{
+    background-repeat: repeat-x;
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+.tblSec{
+    text-align: center;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.link{
+    background-color: #3A506B;
+    font-family: Ubuntu;
+    border-color: #7772B6;
+    color: #5BC0BE;
+    padding:13px;
+    min-width:100px;
+    min-height:72px;
+    display:inline-block;
+}
+
+.navi{
+    float:inline-end;
+}
+
+.logo{
+    min-width:10px;
+}
+
+.buttons{
+    margin-left:150px;
+    min-width: 150px;
+}
+
+
+
+
+.form__group {
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
+  width: 50%;
+}
+
+.form__group {
+    position: relative;
+    padding: 15px 0 0;
+    margin-top: 10px;
+    width: 50%;
+  }
+  .form__field {
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid #9b9b9b;
+    outline: 0;
+    font-size: 1.3rem;
+    color: #fff;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+  }
+  .form__field::placeholder {
+    color: transparent;
+  }
+  .form__field:placeholder-shown ~ .form__label {
+    font-size: 1.3rem;
+    cursor: text;
+    top: 20px;
+  }
+  .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #9b9b9b;
+  }
+  .form__field:focus {
+    padding-bottom: 6px;
+    font-weight: 700;
+    border-width: 3px;
+    border-image: linear-gradient(to right, #11998e, #38ef7d);
+    border-image-slice: 1;
+  }
+  .form__field:focus ~ .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #11998e;
+    font-weight: 700;
+  }
+  /* reset input */
+  .form__field:required, .form__field:invalid {
+    box-shadow: none;
+  }
+
+
+  #form-submit-button {
+	background: #4dceb0;
+	color: #fff;
+	border: 1px solid #eee;
+	border-radius: 20px;
+	box-shadow: 5px 5px 5px #eee;
+	text-shadow: none;
+
+    margin-top: 10px;
+    font-size: 1.5em;
+}
+
+#form-submit-button:hover {
+	background: #016ABC;
+	color: #fff;
+	border: 1px solid #eee;
+	border-radius: 20px;
+	box-shadow: 5px 5px 5px #eee;
+	text-shadow: none;
+}
+
+  
