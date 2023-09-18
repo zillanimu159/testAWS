@@ -18,10 +18,11 @@ db =mysql.connect(user=db_user, password=db_pass, host=db_host)
 cursor = db.cursor()
 
 
-cursor.execute("create database if not exists ece140Final;")
-cursor.execute("use ece140Final;")
+cursor.execute("create database if not exists hostingtime;")
+cursor.execute("use hostingtime;")
 cursor.execute("drop table if exists users;")
 cursor.execute("drop table if exists sessions;")
+cursor.execute("drop table if exists files;")
 ##############################################################################
 try:
    cursor.execute("""
@@ -29,7 +30,6 @@ try:
       id         integer auto_increment primary key,
       first_name varchar(64) not null,
       last_name  varchar(64) not null,
-      student_id integer not null unique,
       email      varchar(64) not null unique,
       username   varchar(64) not null unique,
       password   varchar(64) not null,
