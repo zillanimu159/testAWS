@@ -6,6 +6,7 @@ import mysql.connector as mysql
 from dotenv import load_dotenv
 import uvicorn                                # Used for running the app
 import userEntry as db                              # Import helper module of database functions!
+import fileDB                              # Import helper module of database functions!
 from pydantic import BaseModel
 from fastapi.templating import Jinja2Templates    # Used for generating HTML from templatized files
 import os                                         # Used for interacting with the system environment
@@ -54,7 +55,9 @@ class RewriteUser(BaseModel): # TODO use different unique identifier for passwor
   username: str = ""
   password: str = ""
 
-
+class FileUpload(BaseModel):
+  email: str
+  file: str
 app = FastAPI()                   # Specify the "app" that will run the routing
 # Mount the static directory
 app.mount("/public", StaticFiles(directory=os.path.dirname(__file__) + "/public"), name="public")
@@ -193,9 +196,10 @@ def post_forgor(visitor:PasswordForgetter, request:Request, response:Response) -
     return {'message': 'Invalid email or password', 'changed' : False}
   
 @app.post('/uploadFile')
-def post_file(request:Request, response:Response) -> dict:
-  fix this
-  if (db.update_user_password(email,newPassword)): 
+def post_file(upload:FileUpload,request:Request, response:Response) -> dict:
+  email = upload.email
+  file = upload.file
+  if (fileDB.add_file(email, file)): 
     return {'message': 'Your file made it :D', 'changed' : True}
   else:
     return {'message': 'Invalid email or password', 'changed' : False}

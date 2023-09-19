@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>User Profile</title>
+  <link rel="icon" type="image/x-icon" href="/public/favicon.ico">
+  <link rel="stylesheet" href="/public/main.css">
+  <script src="public/loggedin.js"></script>
+</head>
+
+<body>
+  <div class="heading">
+    <table>
+      <tr>
+        <td>
+          <a href="/"> <button class="link logo">
+              <img src="/public/favicon.ico" alt="Home" style="width:42px;height:42px;">
+            </button> </a>
+        </td>
+        <td>
+          <a href="/profile"> <button class="link">
+              User Settings
+            </button></a>
+        </td>
+        <td>
+          <button class="link logout_button">
+            Logout
+          </button>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <main class='container' data-mode='viewing'>
+    <h1>Upload a File!</h1>
+    <div class='edit_view'>
+      <form name='upload' enctype="multipart/form-data" action='/uploadFile' method='POST'>
+        <input type="file" id="myFile" name="filename">
+        <input type="submit">
+      </form>
+    </div>
+  </main>
+</body>
+
+</html>

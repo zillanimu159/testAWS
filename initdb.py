@@ -50,6 +50,18 @@ try:
 except RuntimeError as err:
    print("runtime error: {0}".format(err))
 
+try:
+   cursor.execute("""
+   create table if not exists files (
+      id integer auto_increment primary key,
+      user_id integer not null,
+      filepath varchar(1000) not null,
+      created_at timestamp not null default current_timestamp
+   );
+ """)
+except RuntimeError as err:
+   print("runtime error: {0}".format(err))
+
 # Collection of users with plain-text passwords – BIG NONO! NEVER EVER DO THIS!!!
 """users = [
   {'first_name':'Zendaya', 'last_name':'',          'student_id': '00000000', 'email': 'a@wow.com',   'username': 'ZD123',   'password': 'abc123'},
