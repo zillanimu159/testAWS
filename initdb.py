@@ -73,27 +73,6 @@ except RuntimeError as err:
 ]
 """
 
-''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-
-
-# Generate a salt for extra security
-pwd_salt = bcrypt.gensalt()
-
-# Insert every user with a salted and hashed password
-"""for user in users:
-  pwd = bcrypt.hashpw(user['password'].encode('utf-8'), pwd_salt)
-  query = 'insert into users (first_name, last_name, student_id, email, username, password) values (%s, %s, %s, %s, %s, %s)'
-  values = (user['first_name'], user['last_name'], user['student_id'], user['email'], user['username'], pwd)
-  cursor.execute(query, values)
-"""
-
-
-''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-
-
-# Generate a salt for extra security
-pwd_salt = bcrypt.gensalt()
-
 
 # Commit the changes and close the connection
 db.commit()

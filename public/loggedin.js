@@ -42,6 +42,26 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  let upload = document.querySelector('form[name=upload]');
+  if (upload) { // in case we are not on the profile page
+    upload.addEventListener('submit', (event) => {
+      // Stop the default form behavior
+      event.preventDefault();
+
+      // Grab the needed form fields
+      const action = edit_user.getAttribute('action');
+      const method = edit_user.getAttribute('method');
+      const data = Object.fromEntries(new FormData(edit_user).entries());
+
+      // Submit the POST request
+      server_request(action, data, method, (response) => {
+        alert(response.message);
+        if (response.changed) {
+          location.replace('/upload');
+        }
+      });
+    });
+  }
   /*************************************
           Logout (across all pages)
    *************************************/

@@ -163,9 +163,9 @@ def post_login(visitor:Visitor, request:Request, response:Response) -> dict:
   else:
     return {'message': 'Invalid username or password', 'session_id': 0}
 
-#######################################
-######    Change Profile Data    ######
-#######################################
+  #######################################
+  ######    Change Profile Data    ######
+  #######################################
 
 @app.post('/profile')
 def post_profile(user:RewriteUser, request:Request, response:Response) -> dict:
@@ -195,15 +195,19 @@ def post_forgor(visitor:PasswordForgetter, request:Request, response:Response) -
   else:
     return {'message': 'Invalid email or password', 'changed' : False}
   
+  #######################################
+  ##########       Files      ##########
+  #######################################
+
 @app.post('/uploadFile')
-def post_file(upload:FileUpload,request:Request, response:Response) -> dict:
-  email = upload.email
-  file = upload.file
+def post_file(request:Request, response:Response) -> dict:
+  # need to get output and save file to server https://stackoverflow.com/questions/33369306/parse-multipart-form-data-received-from-requests-post
+  # need to get user from email 
   if (fileDB.add_file(email, file)): 
     return {'message': 'Your file made it :D', 'changed' : True}
   else:
     return {'message': 'Invalid email or password', 'changed' : False}
-  
+# add file download from user's uploaded files
 #######################################
 ##########       Logout      ##########
 #######################################
